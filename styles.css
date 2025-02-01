@@ -1,0 +1,321 @@
+:root {
+  --thickness: 0.25rem;
+  --clr-gray: #222;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+body > main {
+  padding: 0 1rem;
+}
+
+.container {
+  margin: 1rem auto;
+  width: 70rem;
+  max-width: 100%;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #eee;
+  padding: 1rem;
+}
+
+.game-info .logo {
+  text-decoration: none;
+  color: #000;
+}
+
+.game-info .category span {
+  text-transform: capitalize;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #eee;
+}
+
+.hangman-draw-wrapper {
+  flex: 1;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  height: 22rem;
+}
+
+.hangman-draw-wrapper * {
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+
+.hangman-draw {
+  width: 4rem;
+  height: 100%;
+  border-bottom: var(--thickness) solid var(--clr-gray);
+  position: relative;
+  margin: auto;
+  left: -3rem;
+}
+
+.hangman-draw .stand {
+  position: absolute;
+  width: var(--thickness);
+  background-color: var(--clr-gray);
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.hangman-draw .hang {
+  position: absolute;
+  height: var(--thickness);
+  background-color: var(--clr-gray);
+  width: 7rem;
+  top: 1.5rem;
+  left: 2rem;
+}
+
+.hangman-draw .hang::before {
+  content: "";
+  position: absolute;
+  background-color: var(--clr-gray);
+  width: var(--thickness);
+  height: 2rem;
+  top: 0;
+  right: 0;
+}
+
+.hangman-draw .rope {
+  width: 5rem;
+  height: 5rem;
+  border: var(--thickness) dashed var(--clr-gray);
+  position: absolute;
+  top: 3.5rem;
+  left: 6.4rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.hangman-draw .man .head {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: var(--thickness) solid var(--clr-gray);
+  position: absolute;
+  top: 4.25rem;
+  left: 7.15rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.hangman-draw .man .body {
+  background-color: var(--clr-gray);
+  width: var(--thickness);
+  height: 7rem;
+  position: absolute;
+  top: 7.5rem;
+  left: 8.85rem;
+}
+
+.hangman-draw .man .hands::before,
+.hangman-draw .man .hands::after {
+  content: "";
+  background-color: var(--clr-gray);
+  width: 3.5rem;
+  height: var(--thickness);
+  position: absolute;
+  top: 10rem;
+}
+
+.hangman-draw .man .hands::before {
+  left: 5.7rem;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+}
+
+.hangman-draw .man .hands::after {
+  left: 8.7rem;
+  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+}
+
+.hangman-draw .man .legs::before,
+.hangman-draw .man .legs::after {
+  content: "";
+  background-color: var(--clr-gray);
+  width: 3.5rem;
+  height: var(--thickness);
+  position: absolute;
+  top: 15.1rem;
+}
+
+.hangman-draw .man .legs::before {
+  left: 5.7rem;
+  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+}
+
+.hangman-draw .man .legs::after {
+  left: 8.7rem;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+}
+
+.letters {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.letters .letter-box {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #009688;
+  color: #fff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.letters .letter-box.clicked {
+  background-color: var(--clr-gray);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.letters-guess {
+  margin: 1rem auto;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  text-align: center;
+}
+
+.letters-guess div {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.letters-guess div:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.letters-guess span {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdfdfd;
+  border-bottom: 3px solid var(--clr-gray);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.letters-guess span.space {
+  display: none;
+}
+
+@media (max-width: 47.7rem) {
+  .letters-guess span {
+    font-size: 1rem;
+  }
+}
+
+/* Handle hidden elements */
+.hangman-draw-wrapper .hidden {
+  opacity: 0;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  color: #fff;
+  font-size: 3rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.popup.fail {
+  background-color: #ff0000f5;
+}
+
+.popup.success {
+  background-color: #00ca54f1;
+}
+
+.popup button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid var(--clr-gray);
+  margin-top: 1rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
