@@ -8,10 +8,18 @@
   </head>
   <body>
     <main>
+      <div class="start-game-container">
+        <label for="lang">Select your prefered langauge</label>
+        <select name="lang" id="lang">
+          <option value="english">English</option>
+          <option value="arabic">اللغة العربية</option>
+        </select>
+        <button type="button" id="select-button">Select</button>
+      </div>
       <div class="container">
         <div class="game-info">
           <a href="#" class="logo">Hangman</a>
-          <div class="category">Word Category: <span></span></div>
+          <div class="category-container"><span class="title"></span><span class="category"></span></div>
         </div>
         <div class="row">
           <div class="hangman-draw-wrapper">
