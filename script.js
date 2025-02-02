@@ -15,7 +15,7 @@ selectButton.addEventListener("click", () => {
   const selectedLang = langOptions.find((option) => option.selected === true);
   if (selectedLang.value === "arabic") {
     categoryTitle.textContent = "الفئة: ";
-    lettersArray = Array.from("أبتثجحخدذرزسشصضطظعغفقكلمنهويا");
+    lettersArray = Array.from("أبتثجحخدذرزسشصضطظعغفقكلمنهوياةؤءئى");
     words = {
       فواكه: [
         "تفاح",
