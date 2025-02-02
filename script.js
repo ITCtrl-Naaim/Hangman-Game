@@ -9,6 +9,7 @@ const categoryTitle = document.querySelector(".category-container .title");
 let lettersArray;
 let words = {};
 let wrongAttempts = 0;
+let randomWord;
 
 selectButton.addEventListener("click", () => {
   const selectedLang = langOptions.find((option) => option.selected === true);
@@ -159,7 +160,7 @@ function startGame() {
   const randomPropertyName =
     wordsKeys[Math.floor(Math.random() * wordsKeys.length)];
   const randomPropertyValue = words[randomPropertyName];
-  const randomWord =
+  randomWord =
     randomPropertyValue[
       Math.floor(Math.random() * randomPropertyValue.length)
     ].toLowerCase();
@@ -168,8 +169,6 @@ function startGame() {
     randomPropertyName;
 
   const chosenWordArray = Array.from(randomWord);
-
-  console.log(chosenWordArray);
 
   let guessSpansContainer = document.createElement("div");
 
